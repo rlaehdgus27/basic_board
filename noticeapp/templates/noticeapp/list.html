@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+<!-- -->
+
+{% block content %}
+
+<!-- -->
+<div class="container">
+  <div class="boardBox">
+    <div class="typeBox">
+      <form class="formBox" action="{% url 'noticeapp:list' %}" method="GET">
+        <input type="hidden" name="search" value="전체" />
+        <button class="btn btn-outline-secondary">전체</button>
+      </form>
+
+      {% for type in type_list %}
+
+      <form class="formBox" action="{% url 'noticeapp:list' %}" method="GET">
+        <input type="hidden" name="search" value="{{type}}" />
+        <button class="btn btn-outline-secondary">{{type}}</button>
+      </form>
+
+      {% endfor %}
+    </div>
+
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">NO</th>
+            <th scope="col">Type</th>
+            <th scope="col">Title</th>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for notice in notice_list %}
+          <tr>
+            <th scope="row">{{notice.pk}}</th>
+            <td>{{notice.type}}</td>
+            <td>
+              <a href="{% url 'noticeapp:detail' pk=notice.pk%}"
+                >{{notice.title}}</a
+              >
+            </td>
+            <td>Master</td>
+            <td>{{notice.create_at}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -->
+
+  <div class="createBox">
+    <a href="{% url 'noticeapp:create' %}">
+      <button class="btn btn-outline-secondary">글 작성하기</button>
+    </a>
+  </div>
+
+  <hr />
+</div>
+<!-- -->
+
+{%endblock content %}

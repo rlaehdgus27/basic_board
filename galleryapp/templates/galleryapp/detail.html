@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+<!-- -->
+
+{% block content %}
+<div class="container">
+  <h1 class="title">{{ target_gallery.title}}</h1>
+
+  <div class="infoBox">
+    <span class="infoText">작성자</span>
+    <span class="infoText">Master</span>
+    <span class="infoText">작성일</span>
+    <span class="infoText">{{ target_gallery.create_at}}</span>
+  </div>
+
+  <hr />
+
+  <div class="contentBox">
+    <p>{{ target_gallery.content}}</p>
+
+    {% if target_gallery.image %}
+    <img src="{{ target_gallery.image.url }}" />
+    {% endif %}
+  </div>
+
+  <div class="createBox">
+    <a href="{% url 'galleryapp:list'%}">
+      <button class="btn btn-outline-secondary">목록</button>
+    </a>
+    <a href="{% url 'galleryapp:update' pk=target_gallery.pk %}">
+      <button class="btn btn-outline-success createBtn">수정</button>
+    </a>
+    <a href="{% url 'galleryapp:delete' pk=target_gallery.pk %}">
+      <button class="btn btn-outline-danger">삭제</button>
+    </a>
+  </div>
+</div>
+
+{% endblock content %}

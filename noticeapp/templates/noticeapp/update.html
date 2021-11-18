@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!-- -->
+
+{% load bootstrap4 %}
+
+<!-- -->
+
+{% block content %}
+
+<div class="container">
+  <form action="{% url 'noticeapp:update' pk=target_notice.pk%}" method="POST">
+    {% csrf_token %}
+
+    <!--  -->
+
+    {% bootstrap_form form %}
+
+    <div class="createBox">
+      <button type="submit" class="btn btn-outline-success">수정하기</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

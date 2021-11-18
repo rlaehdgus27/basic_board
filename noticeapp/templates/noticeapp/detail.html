@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+<!-- -->
+
+{% block content %}
+
+<div class="container">
+  <h1 class="title">{{ target_notice.title}}</h1>
+
+  <div class="infoBox">
+    <span class="infoText">작성자</span>
+    <span class="infoText">Master</span>
+    <span class="infoText">작성일</span>
+    <span class="infoText">{{ target_notice.create_at}}</span>
+    <span class="infoText">Type</span>
+    <span class="infoText">{{ target_notice.type}}</span>
+  </div>
+
+  <hr />
+
+  <div class="contentBox">
+    <p>{{ target_notice.content}}</p>
+  </div>
+
+  <hr />
+
+  <div class="createBox">
+    <a href="{% url 'noticeapp:list'%}">
+      <button class="btn btn-outline-secondary">목록</button>
+    </a>
+    <a href="{% url 'noticeapp:update' pk=target_notice.pk %}">
+      <button class="btn btn-outline-success createBtn">수정</button>
+    </a>
+    <a href="{% url 'noticeapp:delete' pk=target_notice.pk %}">
+      <button class="btn btn-outline-danger">삭제</button>
+    </a>
+  </div>
+</div>
+
+{% endblock content %}

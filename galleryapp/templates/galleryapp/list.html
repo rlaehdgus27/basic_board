@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+<!-- -->
+
+{% block content %}
+
+<!-- -->
+
+<div class="container">
+  <div class="boardBox">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">NO</th>
+            <th scope="col">Title</th>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for gallery in gallery_list %}
+          <tr>
+            <th scope="row">{{gallery.pk}}</th>
+            <td>
+              <a href="{% url 'galleryapp:detail' pk=gallery.pk%}"
+                >{{gallery.title}}</a
+              >
+            </td>
+            <td>Master</td>
+            <td>{{gallery.create_at}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- -->
+
+  <div class="createBox">
+    <a href="{% url 'galleryapp:create' %}">
+      <button class="btn btn-outline-secondary">글 작성하기</button>
+    </a>
+  </div>
+
+  <hr />
+</div>
+<!-- -->
+
+{%endblock content %}

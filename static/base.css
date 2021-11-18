@@ -1,0 +1,98 @@
+.header {
+  height: 8rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header div:nth-child(1) h1,
+.footer div:nth-child(1) h2 {
+  font-family: "Cardo", serif;
+  color: rgb(68, 62, 62);
+}
+
+.footer {
+  height: 6rem;
+  margin: 2rem 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer div:nth-child(2) {
+  font-size: 0.8rem;
+  color: rgb(121, 113, 113);
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer;
+  transition: 0.7s;
+}
+
+.createBox {
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 10px 0;
+}
+
+/* list start */
+
+.boardBox {
+  padding: 4rem 0;
+}
+
+.typeBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.formBox {
+  padding: 10px;
+}
+
+/* list end */
+
+/* detail start */
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.infoBox {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.infoBox .infoText {
+  font-size: 20px;
+  margin: 0 10px 0 0;
+}
+
+.infoBox span:nth-child(1),
+span:nth-child(3),
+span:nth-child(5) {
+  font-weight: 600;
+}
+
+.contentBox {
+  height: 600px;
+  font-size: 18px;
+}
+
+.btn.createBtn {
+  margin: 0 10px;
+}
+
+/* detail end */
